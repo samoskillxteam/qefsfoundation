@@ -17,7 +17,7 @@
 
 ## About the Foundation
 
-**Queen Ecstasy Family Support Foundation (QEFSF)** is a registered non-governmental organization headquartered at **No. 294 Obioma Abara Street, Arab Road, Kubwa, Abuja, Nigeria**.
+**Queen Ecstasy Family Support Foundation (QEFSF)** is a registered non-governmental organization headquartered at **No. 294 Obioma Abara Street, Arab Road, Kubwa, Abuja, Nigeria**, with a branch office at **No 5b Okigwe Road, Owerri, Imo State**.
 
 Founded by **Queen Esther Chukwumaeze**, herself a young widow who overcame grief and adversity through faith and community, the Foundation is dedicated to:
 
@@ -143,7 +143,7 @@ This is a pure static HTML site — no build step required.
 
 | Channel | Details |
 |---------|---------|
-| **Address** | No. 294 Obioma Abara Street, Arab Road, Kubwa, Abuja, Nigeria |
+| **Address** | **Head Office:** No. 294 Obioma Abara Street, Arab Road, Kubwa, Abuja, Nigeria<br>**Imo Office:** No 5b Okigwe Road, Owerri, Imo State |
 | **Phone / WhatsApp** | [0708 195 4398](https://wa.me/2347081954398) |
 | **Email** | info@queenecstasyfoundation.org |
 | **Bank (NGN)** | Queen Ecstasy Family Support Foundation — Zenith Bank / First Bank |
