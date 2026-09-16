@@ -19,7 +19,7 @@
 
 **Queen Ecstasy Family Support Foundation (QEFSF)** is a registered non-governmental organization headquartered at **No. 294 Obioma Abara Street, Arab Road, Kubwa, Abuja, Nigeria**.
 
-Founded by **Queen Esther Chukwumeze**, herself a young widow who overcame grief and adversity through faith and community, the Foundation is dedicated to:
+Founded by **Queen Esther Chukwumaeze**, herself a young widow who overcame grief and adversity through faith and community, the Foundation is dedicated to:
 
 - Empowering young widows — restoring their dignity, self-reliance, and economic independence
 - Child education scholarships — ensuring vulnerable children have access to quality education
@@ -29,7 +29,7 @@ Founded by **Queen Esther Chukwumeze**, herself a young widow who overcame grief
 - Women vocational skills training — tailoring, fashion, and entrepreneurship programs
 
 > *"No young widow should ever walk through darkness alone or believe their story is over."*
-> — Queen Esther Chukwumeze, Founder & President
+> — Queen Esther Chukwumaeze, Founder & President
 
 ---
 
