@@ -146,7 +146,7 @@ This is a pure static HTML site — no build step required.
 | **Address** | **Head Office:** No. 294 Obioma Abara Street, Arab Road, Kubwa, Abuja, Nigeria<br>**Imo Office:** No 5b Okigwe Road, Owerri, Imo State |
 | **Phone / WhatsApp** | [0708 195 4398](https://wa.me/2347081954398) |
 | **Email** | info@queenecstasyfoundation.org |
-| **Bank (NGN)** | Ecstacy Family Support Foundation — FCMB (Account Number: 2009891769) |
+| **Bank (NGN)** | Queen Ecstacy Family Support Foundation — FCMB (Account Number: 2009891769) |
 | **Office Hours** | Monday – Saturday: 9:00 AM – 5:00 PM |
 
 After making a bank transfer, confirm your donation by messaging on WhatsApp:
