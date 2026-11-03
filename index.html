@@ -961,6 +961,24 @@
                     <p class="wow fadeInUp" data-wow-delay="0.2s">Transparent and impactful sponsorship opportunities
                         for individuals, organizations, and partners committed to uplifting vulnerable families in
                         Nigeria.</p>
+
+                    <!-- Currency Switcher Toggle Start -->
+                    <div class="tier-currency-switch-wrapper mt-4 text-center wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="d-inline-flex p-1"
+                            style="background: #ffffff; border-radius: 30px; border: 1px solid #dbe2dd; box-shadow: 0 4px 15px rgba(0,0,0,0.06); gap: 4px;">
+                            <button type="button" class="btn btn-sm" id="tierBtnCurNgn"
+                                onclick="selectCurrency('NGN')"
+                                style="border-radius: 25px; padding: 7px 24px; font-weight: 800; font-size: 13px; text-transform: uppercase; background: #cda043; color: #ffffff; border: none; transition: all 0.25s ease;">
+                                <i class="fa-solid fa-money-bill-wave me-1"></i> Naira (₦)
+                            </button>
+                            <button type="button" class="btn btn-sm" id="tierBtnCurUsd"
+                                onclick="selectCurrency('USD')"
+                                style="border-radius: 25px; padding: 7px 24px; font-weight: 800; font-size: 13px; text-transform: uppercase; background: transparent; color: #555555; border: none; transition: all 0.25s ease;">
+                                <i class="fa-solid fa-dollar-sign me-1"></i> Dollar ($)
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Currency Switcher Toggle End -->
                 </div>
                 <!-- Section Title End -->
             </div>
@@ -978,7 +996,7 @@
                         <!-- Pricing Item Content Start -->
                         <div class="pricing-item-content-gold">
                             <h2>Widow Skill Starter</h2>
-                            <h3>₦50,000<sub>/Sponsor</sub></h3>
+                            <h3 id="tierPriceWidow">₦50,000<sub>/Sponsor</sub></h3>
                             <p>Equips a young widow with viable tailoring, catering, or beauty trade skills.</p>
                         </div>
                         <!-- Pricing Item Content End -->
@@ -996,7 +1014,7 @@
 
                         <!-- Pricing Item Button Start -->
                         <div class="pricing-item-btn-gold">
-                            <a href="#donate-section" class="btn-default">Sponsor a Widow</a>
+                            <a href="#donate-section" onclick="selectTierAndDonate('widow')" class="btn-default">Sponsor a Widow</a>
                         </div>
                         <!-- Pricing Item Button End -->
                     </div>
@@ -1015,7 +1033,7 @@
                         <!-- Pricing Item Content Start -->
                         <div class="pricing-item-content-gold">
                             <h2>Child Education Sponsor</h2>
-                            <h3>₦25,000<sub>/Term</sub></h3>
+                            <h3 id="tierPriceChild">₦25,000<sub>/Term</sub></h3>
                             <p>Ensures a child from a struggling home stays in school with pride and dignity.</p>
                         </div>
                         <!-- Pricing Item Content End -->
@@ -1033,7 +1051,7 @@
 
                         <!-- Pricing Item Button Start -->
                         <div class="pricing-item-btn-gold">
-                            <a href="#donate-section" class="btn-default">Sponsor a Child</a>
+                            <a href="#donate-section" onclick="selectTierAndDonate('child')" class="btn-default">Sponsor a Child</a>
                         </div>
                         <!-- Pricing Item Button End -->
                     </div>
@@ -1052,7 +1070,7 @@
                         <!-- Pricing Item Content Start -->
                         <div class="pricing-item-content-gold">
                             <h2>Family Food Relief Pack</h2>
-                            <h3>₦35,000<sub>/Family</sub></h3>
+                            <h3 id="tierPriceFood">₦35,000<sub>/Family</sub></h3>
                             <p>Provides emergency food security for a vulnerable household facing hardship.</p>
                         </div>
                         <!-- Pricing Item Content End -->
@@ -1070,7 +1088,7 @@
 
                         <!-- Pricing Item Button Start -->
                         <div class="pricing-item-btn-gold">
-                            <a href="#donate-section" class="btn-default">Donate Food Pack</a>
+                            <a href="#donate-section" onclick="selectTierAndDonate('food')" class="btn-default">Donate Food Pack</a>
                         </div>
                         <!-- Pricing Item Button End -->
                     </div>
@@ -1741,7 +1759,12 @@
                 heading: 'Direct Bank Transfer (Naira Account)',
                 primaryAccount: '2009891769',
                 currencyBadge: 'NGN',
-                secondaryText: 'Dollar Domiciliary Account: <strong style="color: #fff;">2009892577 (USD)</strong>'
+                secondaryText: 'Dollar Domiciliary Account: <strong style="color: #fff;">2009892577 (USD)</strong>',
+                tiers: {
+                    widow: '₦50,000',
+                    child: '₦25,000',
+                    food: '₦35,000'
+                }
             },
             USD: {
                 symbol: '$',
@@ -1751,7 +1774,12 @@
                 heading: 'Direct Bank Transfer (USD Domiciliary Account)',
                 primaryAccount: '2009892577',
                 currencyBadge: 'USD',
-                secondaryText: 'Naira Account: <strong style="color: #fff;">2009891769 (NGN)</strong>'
+                secondaryText: 'Naira Account: <strong style="color: #fff;">2009891769 (NGN)</strong>',
+                tiers: {
+                    widow: '$50',
+                    child: '$25',
+                    food: '$35'
+                }
             }
         };
 
@@ -1761,47 +1789,113 @@
             currentActiveCurrency = curr;
             document.getElementById('selectedCurrency').value = curr;
 
+            // Update Donate Form currency toggles
             const btnNgn = document.getElementById('btnCurNgn');
             const btnUsd = document.getElementById('btnCurUsd');
 
-            if (curr === 'NGN') {
-                btnNgn.style.background = '#cda043';
-                btnNgn.style.color = '#0d3822';
-                btnUsd.style.background = 'transparent';
-                btnUsd.style.color = '#ffffff';
-            } else {
-                btnUsd.style.background = '#cda043';
-                btnUsd.style.color = '#0d3822';
-                btnNgn.style.background = 'transparent';
-                btnNgn.style.color = '#ffffff';
+            if (btnNgn && btnUsd) {
+                if (curr === 'NGN') {
+                    btnNgn.style.background = '#cda043';
+                    btnNgn.style.color = '#0d3822';
+                    btnUsd.style.background = 'transparent';
+                    btnUsd.style.color = '#ffffff';
+                } else {
+                    btnUsd.style.background = '#cda043';
+                    btnUsd.style.color = '#0d3822';
+                    btnNgn.style.background = 'transparent';
+                    btnNgn.style.color = '#ffffff';
+                }
+            }
+
+            // Update Pathways / Tiers currency toggles
+            const tierBtnNgn = document.getElementById('tierBtnCurNgn');
+            const tierBtnUsd = document.getElementById('tierBtnCurUsd');
+            if (tierBtnNgn && tierBtnUsd) {
+                if (curr === 'NGN') {
+                    tierBtnNgn.style.background = '#cda043';
+                    tierBtnNgn.style.color = '#ffffff';
+                    tierBtnUsd.style.background = 'transparent';
+                    tierBtnUsd.style.color = '#555555';
+                } else {
+                    tierBtnUsd.style.background = '#cda043';
+                    tierBtnUsd.style.color = '#ffffff';
+                    tierBtnNgn.style.background = 'transparent';
+                    tierBtnNgn.style.color = '#555555';
+                }
             }
 
             const config = currencyConfig[curr];
-            const amountInput = document.getElementById('customAmount');
-            amountInput.placeholder = config.defaultAmount;
-            amountInput.value = config.defaultAmount;
 
-            // Rebuild presets
+            // Update Pathways / Tier prices
+            const tierPriceWidow = document.getElementById('tierPriceWidow');
+            const tierPriceChild = document.getElementById('tierPriceChild');
+            const tierPriceFood = document.getElementById('tierPriceFood');
+            if (tierPriceWidow) tierPriceWidow.innerHTML = `${config.tiers.widow}<sub>/Sponsor</sub>`;
+            if (tierPriceChild) tierPriceChild.innerHTML = `${config.tiers.child}<sub>/Term</sub>`;
+            if (tierPriceFood) tierPriceFood.innerHTML = `${config.tiers.food}<sub>/Family</sub>`;
+
+            // Update custom amount input
+            const amountInput = document.getElementById('customAmount');
+            if (amountInput) {
+                amountInput.placeholder = config.defaultAmount;
+                amountInput.value = config.defaultAmount;
+            }
+
+            // Rebuild presets in donation box
             const box = document.getElementById('donateValuesBox');
-            let html = '';
-            config.presets.forEach((val, idx) => {
-                const isChecked = idx === config.defaultIndex ? 'checked' : '';
-                html += `
-                    <div class="donate-value">
-                        <input type="radio" id="val_${curr}_${idx}" name="value" value="${val}" ${isChecked}
-                            onclick="selectPresetAmount('${val}')">
-                        <label for="val_${curr}_${idx}">${val}</label>
-                    </div>`;
-            });
-            box.innerHTML = html;
+            if (box) {
+                let html = '';
+                config.presets.forEach((val, idx) => {
+                    const isChecked = idx === config.defaultIndex ? 'checked' : '';
+                    html += `
+                        <div class="donate-value">
+                            <input type="radio" id="val_${curr}_${idx}" name="value" value="${val}" ${isChecked}
+                                onclick="selectPresetAmount('${val}')">
+                            <label for="val_${curr}_${idx}">${val}</label>
+                        </div>`;
+                });
+                box.innerHTML = html;
+            }
 
             // Update Bank Details
-            document.getElementById('bankAccountHeading').innerText = config.heading;
-            document.getElementById('activeAccountNum').innerText = config.primaryAccount;
-            document.getElementById('activeAccountCurrencyBadge').innerText = config.currencyBadge;
-            document.getElementById('secondaryAccountRow').innerHTML = config.secondaryText;
+            const headingElem = document.getElementById('bankAccountHeading');
+            const activeAccElem = document.getElementById('activeAccountNum');
+            const badgeElem = document.getElementById('activeAccountCurrencyBadge');
+            const secondaryElem = document.getElementById('secondaryAccountRow');
+
+            if (headingElem) headingElem.innerText = config.heading;
+            if (activeAccElem) activeAccElem.innerText = config.primaryAccount;
+            if (badgeElem) badgeElem.innerText = config.currencyBadge;
+            if (secondaryElem) secondaryElem.innerHTML = config.secondaryText;
 
             updateWhatsAppDonationLink();
+        }
+
+        function selectTierAndDonate(tierKey) {
+            const config = currencyConfig[currentActiveCurrency];
+            const amount = config.tiers[tierKey];
+            const amountInput = document.getElementById('customAmount');
+            if (amountInput) {
+                amountInput.value = amount;
+            }
+
+            // Sync with preset radio button
+            const radios = document.querySelectorAll('#donateValuesBox input[type="radio"]');
+            radios.forEach(r => {
+                if (r.value.replace(/[\s,]/g, '') === amount.replace(/[\s,]/g, '')) {
+                    r.checked = true;
+                } else {
+                    r.checked = false;
+                }
+            });
+
+            updateWhatsAppDonationLink();
+
+            // Smooth scroll to donation section
+            const donateSec = document.getElementById('donate-section');
+            if (donateSec) {
+                donateSec.scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
         function selectPresetAmount(amountStr) {
