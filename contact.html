@@ -152,8 +152,8 @@
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div class="contact-info-item-content">
-                                    <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; color: #666;">Email Address</h3>
-                                    <p style="margin: 0; font-weight: 600; color: #111;"><a href="mailto:info@queenecstasyfoundation.org" style="color:#111;">info@queenecstasyfoundation.org</a></p>
+                                    <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; color: #666;">Official Email</h3>
+                                    <p style="margin: 0; font-weight: 600; color: #111;"><a href="mailto:ecstasyfamilysupportfoundation@gmail.com" style="color:#111;">ecstasyfamilysupportfoundation@gmail.com</a></p>
                                 </div>
                             </div>
 
@@ -196,7 +196,7 @@
                             <p class="wow fadeInUp" data-wow-delay="0.2s" style="color: #555;">Whether you are an individual wanting to sponsor a widow, a corporate sponsor seeking partnership, a volunteer, or a family in need of humanitarian assistance, we welcome you with open arms.</p>
                         </div>
 
-                        <form id="contactForm" action="#" method="POST" class="wow fadeInUp" data-wow-delay="0.4s" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to Queen Ecstasy Family Support Foundation. Our team will contact you shortly.');">
+                        <form id="contactForm" action="form-process.php" method="POST" class="wow fadeInUp" data-wow-delay="0.4s">
                             <div class="row">
                                 <div class="form-group col-md-6 mb-3">
                                     <label style="font-weight: 600; font-size: 14px; margin-bottom: 6px;">Your Full Name *</label>
@@ -227,12 +227,15 @@
                                     <textarea name="msg" class="form-control" rows="5" placeholder="Share your inquiry, pledge, or request with us..." required style="padding: 12px; border-radius: 8px;"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn-default btn-highlighted" style="padding: 14px 32px; font-weight: 700; border-radius: 30px;">
+                                    <button type="submit" id="submitBtn" class="btn-default btn-highlighted" style="padding: 14px 32px; font-weight: 700; border-radius: 30px;">
                                         <i class="fa-solid fa-paper-plane me-2"></i> Submit Inquiry
                                     </button>
                                     <a href="https://wa.me/2347081954398?text=Hello%20Queen%20Ecstasy%20Foundation%2C%20I%20would%20like%20to%20make%20an%20inquiry%20regarding%20..." target="_blank" class="btn d-inline-flex align-items-center ms-md-3 mt-2 mt-md-0" style="background:#25D366; color:#ffffff; font-weight:700; border-radius:30px; padding:14px 28px; text-decoration:none;">
                                         <i class="fa-brands fa-whatsapp fs-5 me-2"></i> Direct WhatsApp Message
                                     </a>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div id="msgSubmit" style="display:none; padding: 14px; border-radius: 10px; font-size: 14px;"></div>
                                 </div>
                             </div>
                         </form>
@@ -399,6 +402,49 @@
     <script src="js/wow.min.js"></script>
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
+
+    <!-- Contact Form AJAX Submission Script -->
+    <script>
+        $(document).ready(function () {
+            $('#contactForm').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+                var $btn = $('#submitBtn');
+                var originalHtml = $btn.html();
+
+                $btn.prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin me-2"></i> Sending...');
+                $('#msgSubmit').hide().removeClass('alert alert-success alert-danger text-success text-danger');
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'form-process.php',
+                    data: $form.serialize(),
+                    success: function (res) {
+                        $btn.prop('disabled', false).html(originalHtml);
+                        if ($.trim(res) === 'success') {
+                            $form[0].reset();
+                            $('#msgSubmit')
+                                .addClass('alert alert-success text-success')
+                                .html('<i class="fa-solid fa-circle-check me-2"></i> Thank you! Your message has been sent directly to <strong>ecstasyfamilysupportfoundation@gmail.com</strong>. Our team will contact you shortly.')
+                                .fadeIn();
+                        } else {
+                            $('#msgSubmit')
+                                .addClass('alert alert-danger text-danger')
+                                .html('<i class="fa-solid fa-circle-exclamation me-2"></i> ' + (res || 'Failed to send. Please email us directly at ecstasyfamilysupportfoundation@gmail.com'))
+                                .fadeIn();
+                        }
+                    },
+                    error: function () {
+                        $btn.prop('disabled', false).html(originalHtml);
+                        $('#msgSubmit')
+                            .addClass('alert alert-danger text-danger')
+                            .html('<i class="fa-solid fa-circle-exclamation me-2"></i> Submission error. Please email us directly at <a href="mailto:ecstasyfamilysupportfoundation@gmail.com" class="alert-link">ecstasyfamilysupportfoundation@gmail.com</a> or message us on WhatsApp.')
+                            .fadeIn();
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- Floating WhatsApp Support Button -->
     <a href="https://wa.me/2347081954398?text=Hello%20Queen%20Ecstasy%20Foundation%2C%20I%20would%20like%20to%20connect%20with%20you." class="floating-whatsapp-btn" target="_blank" title="Chat on WhatsApp" style="position:fixed; bottom:25px; right:25px; z-index:9999; background:#25D366; color:#ffffff; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(37,211,102,0.45); text-decoration:none; font-size:30px; transition:transform 0.3s ease;">
