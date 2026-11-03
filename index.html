@@ -820,67 +820,99 @@
                                 <!-- Donate Form Start -->
                                 <div class="donate-form wow fadeInUp" data-wow-delay="0.2s">
                                     <form id="donateForm" action="contact.html" method="GET">
+                                        <input type="hidden" id="selectedCurrency" name="currency" value="NGN">
+
+                                        <!-- Currency Switcher Toggle Start -->
+                                        <div class="currency-switch-wrapper mb-3 text-center">
+                                            <div class="d-inline-flex p-1"
+                                                style="background: rgba(0, 0, 0, 0.35); border-radius: 30px; border: 1px solid rgba(205, 160, 67, 0.45); gap: 4px;">
+                                                <button type="button" class="btn btn-sm currency-btn active" id="btnCurNgn"
+                                                    onclick="selectCurrency('NGN')"
+                                                    style="border-radius: 25px; padding: 7px 22px; font-weight: 800; font-size: 13px; text-transform: uppercase; background: #cda043; color: #0d3822; border: none; transition: all 0.25s ease;">
+                                                    <i class="fa-solid fa-money-bill-wave me-1"></i> Naira (₦)
+                                                </button>
+                                                <button type="button" class="btn btn-sm currency-btn" id="btnCurUsd"
+                                                    onclick="selectCurrency('USD')"
+                                                    style="border-radius: 25px; padding: 7px 22px; font-weight: 800; font-size: 13px; text-transform: uppercase; background: transparent; color: #ffffff; border: none; transition: all 0.25s ease;">
+                                                    <i class="fa-solid fa-dollar-sign me-1"></i> Dollar ($)
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- Currency Switcher Toggle End -->
+
                                         <div class="form-group mb-4">
                                             <input type="text" id="customAmount" name="amount" class="form-control"
-                                                placeholder="₦ 25,000" value="₦ 25,000" required>
+                                                placeholder="₦ 25,000" value="₦ 25,000" required
+                                                oninput="updateWhatsAppDonationLink()">
                                         </div>
 
-                                        <fieldset class="donate-value-box">
+                                        <fieldset class="donate-value-box" id="donateValuesBox">
                                             <div class="donate-value">
                                                 <input type="radio" id="value1" name="value" value="₦ 5,000"
-                                                    onclick="document.getElementById('customAmount').value='₦ 5,000'">
+                                                    onclick="selectPresetAmount('₦ 5,000')">
                                                 <label for="value1">₦ 5,000</label>
                                             </div>
 
                                             <div class="donate-value">
                                                 <input type="radio" id="value2" name="value" value="₦ 10,000"
-                                                    onclick="document.getElementById('customAmount').value='₦ 10,000'">
+                                                    onclick="selectPresetAmount('₦ 10,000')">
                                                 <label for="value2">₦ 10,000</label>
                                             </div>
 
                                             <div class="donate-value">
                                                 <input type="radio" id="value3" name="value" value="₦ 25,000" checked
-                                                    onclick="document.getElementById('customAmount').value='₦ 25,000'">
+                                                    onclick="selectPresetAmount('₦ 25,000')">
                                                 <label for="value3">₦ 25,000</label>
                                             </div>
 
                                             <div class="donate-value">
                                                 <input type="radio" id="value4" name="value" value="₦ 50,000"
-                                                    onclick="document.getElementById('customAmount').value='₦ 50,000'">
+                                                    onclick="selectPresetAmount('₦ 50,000')">
                                                 <label for="value4">₦ 50,000</label>
                                             </div>
 
                                             <div class="donate-value">
                                                 <input type="radio" id="value5" name="value" value="₦ 100,000"
-                                                    onclick="document.getElementById('customAmount').value='₦ 100,000'">
+                                                    onclick="selectPresetAmount('₦ 100,000')">
                                                 <label for="value5">₦ 100,000</label>
                                             </div>
 
                                             <div class="donate-value">
                                                 <input type="radio" id="value6" name="value" value="₦ 250,000"
-                                                    onclick="document.getElementById('customAmount').value='₦ 250,000'">
+                                                    onclick="selectPresetAmount('₦ 250,000')">
                                                 <label for="value6">₦ 250,000</label>
                                             </div>
                                         </fieldset>
 
                                         <!-- Direct Bank Transfer Details Card -->
-                                        <div
-                                            style="background: rgba(255, 255, 255, 0.07); border: 1px dashed #cda043; border-radius: 12px; padding: 16px; margin: 20px 0; text-align: left;">
-                                            <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                                                <i class="fa-solid fa-building-columns me-2 text-warning"
-                                                    style="font-size: 18px;"></i>
-                                                <h4
-                                                    style="margin: 0; font-size: 14px; color: #fff; text-transform: uppercase; letter-spacing: 0.5px;">
-                                                    Direct Bank Transfer (Naira Account)</h4>
+                                        <div id="bankDetailsCard"
+                                            style="background: rgba(255, 255, 255, 0.08); border: 1px dashed #cda043; border-radius: 14px; padding: 18px; margin: 20px 0; text-align: left;">
+                                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                                                <div style="display: flex; align-items: center;">
+                                                    <i class="fa-solid fa-building-columns me-2 text-warning"
+                                                        style="font-size: 18px;"></i>
+                                                    <h4 id="bankAccountHeading"
+                                                        style="margin: 0; font-size: 14px; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800;">
+                                                        Direct Bank Transfer (Naira Account)</h4>
+                                                </div>
+                                                <button type="button" id="copyActiveAccBtn" class="btn btn-sm"
+                                                    onclick="copyCurrentAccount()"
+                                                    style="background: rgba(205, 160, 67, 0.25); color: #ffd700; border: 1px solid #cda043; border-radius: 20px; font-size: 12px; font-weight: 700; padding: 4px 12px;">
+                                                    <i class="fa-regular fa-copy me-1"></i> Copy Account
+                                                </button>
                                             </div>
-                                            <p style="margin: 0; font-size: 13px; color: #ddd; line-height: 1.6;">
+                                            <p style="margin: 0; font-size: 13px; color: #ddd; line-height: 1.7;">
                                                 <strong>Bank:</strong> FCMB (First City Monument Bank)<br>
-                                                <strong>Account Name:</strong> Queen Ecstacy Family Support
-                                                Foundation<br>
-                                                <strong>Account Number (NGN):</strong> <span
-                                                    style="font-weight: 800; color: #ffd700; letter-spacing: 1px; font-size: 15px;">2009891769</span><br>
-                                                <strong>Account Number (USD):</strong> <span
-                                                    style="font-weight: 800; color: #ffd700; letter-spacing: 1px; font-size: 15px;">2009892577</span><br>
+                                                <strong>Account Name:</strong> Queen Ecstacy Family Support Foundation<br>
+                                                <span id="primaryAccountRow" style="display:block; margin: 6px 0; padding: 6px 10px; background: rgba(0,0,0,0.25); border-radius: 8px; border-left: 3px solid #cda043;">
+                                                    <strong>Active Transfer Account:</strong>
+                                                    <span id="activeAccountNum"
+                                                        style="font-weight: 800; color: #ffd700; letter-spacing: 1.5px; font-size: 18px; display: inline-block; margin-left: 5px;">2009891769</span>
+                                                    <span id="activeAccountCurrencyBadge" class="badge ms-2" style="background:#cda043; color:#0d3822; font-weight:800;">NGN</span>
+                                                </span>
+                                                <span id="secondaryAccountRow" style="font-size: 12px; color: #bbb;">
+                                                    Dollar Domiciliary Account: <strong style="color: #fff;">2009892577 (USD)</strong>
+                                                </span><br>
                                                 <small style="color: #cda043;"><i
                                                         class="fa-solid fa-circle-info me-1"></i> Reference your name or
                                                     cause with your transfer</small>
@@ -893,7 +925,8 @@
                                                 Notify Us</button>
                                         </div>
                                         <div class="mt-3">
-                                            <a href="https://wa.me/2347081954398?text=Hello%20Queen%20Ecstasy%20Foundation%2C%20I%20have%20sent%20a%20donation%20via%20bank%20transfer%20and%20would%20like%20to%20confirm%20my%20support."
+                                            <a id="whatsappConfirmBtn"
+                                                href="https://wa.me/2347081954398?text=Hello%20Queen%20Ecstasy%20Foundation%2C%20I%20have%20sent%20a%20donation%20of%20%E2%82%A6%2025%2C000%20(NGN)%20via%20bank%20transfer%20and%20would%20like%20to%20confirm%20my%20support."
                                                 target="_blank"
                                                 class="btn w-100 d-flex align-items-center justify-content-center"
                                                 style="background:#25D366; color:#ffffff; font-weight:700; border-radius:30px; padding:12px; font-size:14px; text-decoration:none; box-shadow:0 4px 12px rgba(37,211,102,0.3);">
@@ -1696,6 +1729,119 @@
     <script src="js/wow.min.js"></script>
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
+
+    <!-- Currency Donation Switcher Script -->
+    <script>
+        const currencyConfig = {
+            NGN: {
+                symbol: '₦',
+                defaultAmount: '₦ 25,000',
+                presets: ['₦ 5,000', '₦ 10,000', '₦ 25,000', '₦ 50,000', '₦ 100,000', '₦ 250,000'],
+                defaultIndex: 2,
+                heading: 'Direct Bank Transfer (Naira Account)',
+                primaryAccount: '2009891769',
+                currencyBadge: 'NGN',
+                secondaryText: 'Dollar Domiciliary Account: <strong style="color: #fff;">2009892577 (USD)</strong>'
+            },
+            USD: {
+                symbol: '$',
+                defaultAmount: '$ 50',
+                presets: ['$ 25', '$ 50', '$ 100', '$ 250', '$ 500', '$ 1,000'],
+                defaultIndex: 1,
+                heading: 'Direct Bank Transfer (USD Domiciliary Account)',
+                primaryAccount: '2009892577',
+                currencyBadge: 'USD',
+                secondaryText: 'Naira Account: <strong style="color: #fff;">2009891769 (NGN)</strong>'
+            }
+        };
+
+        let currentActiveCurrency = 'NGN';
+
+        function selectCurrency(curr) {
+            currentActiveCurrency = curr;
+            document.getElementById('selectedCurrency').value = curr;
+
+            const btnNgn = document.getElementById('btnCurNgn');
+            const btnUsd = document.getElementById('btnCurUsd');
+
+            if (curr === 'NGN') {
+                btnNgn.style.background = '#cda043';
+                btnNgn.style.color = '#0d3822';
+                btnUsd.style.background = 'transparent';
+                btnUsd.style.color = '#ffffff';
+            } else {
+                btnUsd.style.background = '#cda043';
+                btnUsd.style.color = '#0d3822';
+                btnNgn.style.background = 'transparent';
+                btnNgn.style.color = '#ffffff';
+            }
+
+            const config = currencyConfig[curr];
+            const amountInput = document.getElementById('customAmount');
+            amountInput.placeholder = config.defaultAmount;
+            amountInput.value = config.defaultAmount;
+
+            // Rebuild presets
+            const box = document.getElementById('donateValuesBox');
+            let html = '';
+            config.presets.forEach((val, idx) => {
+                const isChecked = idx === config.defaultIndex ? 'checked' : '';
+                html += `
+                    <div class="donate-value">
+                        <input type="radio" id="val_${curr}_${idx}" name="value" value="${val}" ${isChecked}
+                            onclick="selectPresetAmount('${val}')">
+                        <label for="val_${curr}_${idx}">${val}</label>
+                    </div>`;
+            });
+            box.innerHTML = html;
+
+            // Update Bank Details
+            document.getElementById('bankAccountHeading').innerText = config.heading;
+            document.getElementById('activeAccountNum').innerText = config.primaryAccount;
+            document.getElementById('activeAccountCurrencyBadge').innerText = config.currencyBadge;
+            document.getElementById('secondaryAccountRow').innerHTML = config.secondaryText;
+
+            updateWhatsAppDonationLink();
+        }
+
+        function selectPresetAmount(amountStr) {
+            document.getElementById('customAmount').value = amountStr;
+            updateWhatsAppDonationLink();
+        }
+
+        function updateWhatsAppDonationLink() {
+            const amount = document.getElementById('customAmount').value || 'a donation';
+            const curr = currentActiveCurrency;
+            const text = encodeURIComponent(`Hello Queen Ecstasy Foundation, I have sent a donation of ${amount} (${curr}) via bank transfer and would like to confirm my support.`);
+            document.getElementById('whatsappConfirmBtn').href = `https://wa.me/2347081954398?text=${text}`;
+        }
+
+        function copyCurrentAccount() {
+            const accountNum = document.getElementById('activeAccountNum').innerText.trim();
+            const btn = document.getElementById('copyActiveAccBtn');
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(accountNum).then(() => {
+                    const originalHtml = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-check me-1"></i> Copied!';
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                    }, 2000);
+                });
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = accountNum;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check me-1"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                }, 2000);
+            }
+        }
+    </script>
 
     <!-- Floating WhatsApp Support Button -->
     <a href="https://wa.me/2347081954398?text=Hello%20Queen%20Ecstasy%20Foundation%2C%20I%20would%20like%20to%20connect%20with%20you."
