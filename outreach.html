@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description"
+        content="Community Outreaches by Queen Ecstasy Family Support Foundation. Documenting on-the-ground relief, food support, widows empowerment, and medical assistance across communities in Abuja and Nigeria.">
+    <meta name="keywords"
+        content="Queen Ecstasy Foundation Outreach, Abuja Outreach, Biaji Kubwa Outreach, Chief Palace Ijayapi, Humanitarian Support Abuja, Widows Relief Nigeria">
+    <meta name="author" content="Queen Ecstasy Family Support Foundation">
+    <!-- Page Title -->
+    <title>Community Outreaches | Queen Ecstasy Family Support Foundation</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/png" href="images/logo.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="css/all.min.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+
+    <style>
+        /* Outreach Page Dedicated Styles */
+        .outreach-header-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(205, 160, 67, 0.15);
+            color: #cda043;
+            border: 1px solid rgba(205, 160, 67, 0.35);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+        }
+
+        .outreach-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+            border: 1px solid #ebebeb;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 50px;
+        }
+
+        .outreach-card:hover {
+            box-shadow: 0 16px 50px rgba(205, 160, 67, 0.14);
+        }
+
+        .outreach-hero-banner {
+            position: relative;
+            background: linear-gradient(135deg, #0d3822 0%, #154c30 100%);
+            padding: 40px 35px;
+            color: #ffffff;
+            border-bottom: 4px solid #cda043;
+        }
+
+        .outreach-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #e2f0e7;
+        }
+
+        .outreach-meta-item i {
+            color: #cda043;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .outreach-stat-box {
+            background: #f7faf7;
+            border-radius: 14px;
+            padding: 18px 15px;
+            text-align: center;
+            border: 1px solid #e1ede4;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .outreach-stat-box:hover {
+            background: #ffffff;
+            border-color: #cda043;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .outreach-stat-box .stat-icon {
+            font-size: 24px;
+            color: #cda043;
+            margin-bottom: 8px;
+        }
+
+        .outreach-stat-box h4 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0d3822;
+            margin-bottom: 4px;
+        }
+
+        .outreach-stat-box p {
+            font-size: 13px;
+            color: #666666;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Filter Pills */
+        .media-filter-btn {
+            background: #f1f4f2;
+            color: #0d3822;
+            border: 1px solid #dbe2dd;
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .media-filter-btn.active,
+        .media-filter-btn:hover {
+            background: #cda043;
+            color: #ffffff;
+            border-color: #cda043;
+            box-shadow: 0 4px 14px rgba(205, 160, 67, 0.3);
+        }
+
+        /* Photo Cards */
+        .outreach-photo-card {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            background: #ffffff;
+            position: relative;
+            transition: transform 0.3s ease;
+            margin-bottom: 24px;
+        }
+
+        .outreach-photo-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .outreach-photo-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .outreach-photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .outreach-photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 56, 34, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .outreach-photo-card:hover .outreach-photo-overlay {
+            opacity: 1;
+        }
+
+        .outreach-photo-overlay i {
+            color: #ffffff;
+            font-size: 26px;
+            background: #cda043;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Video Cards */
+        .outreach-video-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+            border: 1px solid #ebebeb;
+            margin-bottom: 26px;
+            height: calc(100% - 26px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .outreach-video-card video {
+            width: 100%;
+            height: 250px;
+            background: #000000;
+            object-fit: cover;
+            outline: none;
+        }
+
+        .outreach-video-info {
+            padding: 16px 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .outreach-video-info h5 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0d3822;
+            margin-bottom: 6px;
+        }
+
+        .outreach-video-info p {
+            font-size: 13px;
+            color: #777777;
+            margin: 0;
+        }
+
+        /* Location Navigator Pills */
+        .outreach-nav-pill {
+            background: #ffffff;
+            border: 1px solid #dcdcdc;
+            color: #333333;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .outreach-nav-pill.active {
+            background: #0d3822;
+            color: #ffffff;
+            border-color: #0d3822;
+        }
+
+        .outreach-nav-pill.active .badge-accent {
+            background: #cda043;
+            color: #ffffff;
+        }
+
+        .badge-accent {
+            background: #eef3ef;
+            color: #0d3822;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        /* Upcoming card */
+        .upcoming-outreach-card {
+            background: linear-gradient(135deg, #fbf8f2 0%, #f4ede0 100%);
+            border: 2px dashed #cda043;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="images/logo.png" alt="Queen Ecstasy Family Support Foundation"
+                    style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 10px rgba(0,0,0,0.2); background: #ffffff;">
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+    <header class="main-header main-header-gold">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand d-inline-flex align-items-center text-decoration-none" href="index.html">
+                        <img src="images/logo-badge.png" alt="Queen Ecstasy Family Support Foundation"
+                            style="width: 52px; height: 52px; border-radius: 50%; object-fit: contain; flex-shrink: 0; margin-right: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+                        <span
+                            style="color:#ffffff; font-weight:800; font-size:16px; line-height:1.2; text-transform:uppercase; letter-spacing:0.5px;">Queen
+                            Ecstasy<small
+                                style="display:block; color:#cda043; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Family
+                                Support Foundation</small></span>
+                    </a>
+                    <!-- Logo End -->
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="services.html">Programs</a></li>
+                                <li class="nav-item active"><a class="nav-link active" href="outreach.html">Outreach</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Header Btn Start -->
+                        <div class="header-btn">
+                            <a href="index.html#donate-section" class="btn-default btn-highlighted"><i
+                                    class="fa-solid fa-heart me-1"></i> Donate Now</a>
+                        </div>
+                        <!-- Header Btn End -->
+                    </div>
+                    <!-- Main Menu End -->
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Page Header Section Start -->
+    <div class="page-header dark-section parallaxie" style="background-image: url('images/services_header_bg.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">Community Outreaches</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Outreach Showcase</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header Section End -->
+
+    <!-- Intro & Outreach Directory Section -->
+    <div class="py-5" style="background: #fbfdfc;">
+        <div class="container">
+            <!-- Section Intro Title -->
+            <div class="row section-row text-center mb-4">
+                <div class="col-lg-9 mx-auto">
+                    <span class="section-sub-title wow fadeInUp"
+                        style="color: #cda043; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        <i class="fa-solid fa-hand-holding-heart me-1"></i> Field Operations & Impact
+                    </span>
+                    <h2 class="text-anime-style-3" style="font-size: 36px; font-weight: 800; color: #0d3822;">
+                        Reaching Grassroots Communities with Love & Substance
+                    </h2>
+                    <p style="color: #555; font-size: 16px; line-height: 1.7;">
+                        Through targeted community outreaches, Queen Ecstasy Family Support Foundation takes relief directly to doorsteps, royal palaces, and grassroots settlements — delivering emergency food items, empowerment resources, and psychosocial encouragement to young widows, vulnerable mothers, and needy children.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Outreach Quick Navigator -->
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-5 wow fadeInUp">
+                <a href="#outreach-ijayapi" class="outreach-nav-pill active">
+                    <i class="fa-solid fa-location-dot text-warning"></i>
+                    <span>Chief Palace Ijayapi, Biaji Across Kubwa, Abuja</span>
+                    <span class="badge-accent">Outreach 01</span>
+                </a>
+                <a href="#upcoming-outreaches" class="outreach-nav-pill">
+                    <i class="fa-solid fa-compass text-muted"></i>
+                    <span>Upcoming Outreaches & Expansions</span>
+                    <span class="badge bg-secondary text-white" style="font-size: 11px;">Next In Line</span>
+                </a>
+                <a href="contact.html?subject=Partner+For+Outreach" class="outreach-nav-pill">
+                    <i class="fa-solid fa-plus-circle" style="color: #cda043;"></i>
+                    <span>Nominate / Partner for a Community</span>
+                </a>
+            </div>
+
+            <!-- ==================================================================== -->
+            <!-- OUTREACH #01: CHIEF PALACE IJAYAPI, BIAJI ACROSS KUBWA, ABUJA -->
+            <!-- Note: Future outreaches can simply duplicate this entire block below  -->
+            <!-- ==================================================================== -->
+            <div id="outreach-ijayapi" class="outreach-card wow fadeInUp">
+                <!-- Outreach Banner Header -->
+                <div class="outreach-hero-banner">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <span class="outreach-header-badge">
+                                <i class="fa-solid fa-certificate me-1"></i> Completed Outreach • Flagship Mission
+                            </span>
+                            <h3 style="color:#ffffff; font-weight:800; font-size:28px; line-height:1.2; margin-bottom: 12px;">
+                                Community Relief & Widows Outreach at Chief Palace Ijayapi
+                            </h3>
+                            <div class="d-flex flex-wrap gap-4 mt-3">
+                                <div class="outreach-meta-item">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span><strong>Location:</strong> Chief Palace Ijayapi, Biaji across Kubwa, Abuja FCT</span>
+                                </div>
+                                <div class="outreach-meta-item">
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                    <span><strong>Date:</strong> November 2026</span>
+                                </div>
+                                <div class="outreach-meta-item">
+                                    <i class="fa-solid fa-crown"></i>
+                                    <span><strong>Reception:</strong> Traditional Council of Ijayapi Palace</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                            <a href="index.html#donate-section" class="btn-default btn-highlighted" style="font-size: 14px; padding: 12px 24px;">
+                                <i class="fa-solid fa-heart me-1"></i> Support Next Outreach
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outreach Body Details -->
+                <div class="p-4 p-md-5">
+                    <div class="row mb-5">
+                        <div class="col-lg-8">
+                            <h4 style="color: #0d3822; font-weight: 700; margin-bottom: 14px;">
+                                <i class="fa-solid fa-quote-left text-warning me-2"></i> About This Outreach
+                            </h4>
+                            <p style="color: #444; font-size: 15px; line-height: 1.8;">
+                                In an inspiring humanitarian demonstration, Queen Ecstasy Family Support Foundation led by Founder <strong>Queen Esther Chukwumaeze</strong> mobilized to the <strong>Chief's Palace at Ijayapi, situated across Biaji in Kubwa, Abuja</strong>. The outreach began with an official royal audience with the traditional leaders, receiving their royal endorsement and blessings for the foundation's compassionate community work.
+                            </p>
+                            <p style="color: #444; font-size: 15px; line-height: 1.8;">
+                                The team distributed comprehensive food packages, essential household staples, and provided one-on-one psychological counseling, spiritual support, and empowerment registration for young widows and struggling families in the community. Through this direct engagement, dozens of households received emergency assistance, restoring dignity and smiles to faces that had long felt forgotten.
+                            </p>
+                        </div>
+
+                        <!-- Impact Metrics Grid -->
+                        <div class="col-lg-4">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="outreach-stat-box">
+                                        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                                        <h4>100+</h4>
+                                        <p>Beneficiaries Reached</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="outreach-stat-box">
+                                        <div class="stat-icon"><i class="fa-solid fa-box-open"></i></div>
+                                        <h4>50+</h4>
+                                        <p>Relief Packages Distributed</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="outreach-stat-box">
+                                        <div class="stat-icon"><i class="fa-solid fa-crown"></i></div>
+                                        <h4>100%</h4>
+                                        <p>Royal Blessing & Community Backing</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="outreach-stat-box">
+                                        <div class="stat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                                        <h4>Widows</h4>
+                                        <p>Identified for Ongoing Support</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outreach Media Gallery Section -->
+                    <div class="outreach-media-section pt-3 border-top">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                            <div>
+                                <h4 style="color: #0d3822; font-weight: 800; margin: 0;">
+                                    <i class="fa-solid fa-photo-film text-warning me-2"></i> Outreach Media Gallery
+                                </h4>
+                                <small class="text-muted">High-definition photographs and live video recordings from Chief Palace Ijayapi</small>
+                            </div>
+                            <!-- Media Filter Buttons -->
+                            <div class="d-flex flex-wrap gap-2 media-filter-nav" data-target="ijayapi">
+                                <button class="media-filter-btn active" data-filter="all">
+                                    <i class="fa-solid fa-border-all"></i> All Media (15)
+                                </button>
+                                <button class="media-filter-btn" data-filter="photo">
+                                    <i class="fa-solid fa-image"></i> Photos (10)
+                                </button>
+                                <button class="media-filter-btn" data-filter="video">
+                                    <i class="fa-solid fa-video"></i> Videos (5)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Media Items Container (Photos & Videos) -->
+                        <div class="row g-4 gallery-items" id="ijayapi-media-grid">
+
+                            <!-- VIDEO 1 -->
+                            <div class="col-lg-4 col-md-6 media-item video-item" data-type="video">
+                                <div class="outreach-video-card">
+                                    <video controls preload="metadata" playsinline poster="images/outreach/chief-palace-ijayapi/photo-1.jpg">
+                                        <source src="images/outreach/chief-palace-ijayapi/video-1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="outreach-video-info">
+                                        <h5><i class="fa-solid fa-circle-play text-warning me-1"></i> Palace Welcome & Royal Reception</h5>
+                                        <p>Arrival and welcome by elders and council at Chief Palace Ijayapi, Biaji across Kubwa.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- VIDEO 2 -->
+                            <div class="col-lg-4 col-md-6 media-item video-item" data-type="video">
+                                <div class="outreach-video-card">
+                                    <video controls preload="metadata" playsinline poster="images/outreach/chief-palace-ijayapi/photo-2.jpg">
+                                        <source src="images/outreach/chief-palace-ijayapi/video-2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="outreach-video-info">
+                                        <h5><i class="fa-solid fa-circle-play text-warning me-1"></i> Community Food Distribution</h5>
+                                        <p>Distributing emergency food packages and essential provisions to gathered widows.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- VIDEO 3 -->
+                            <div class="col-lg-4 col-md-6 media-item video-item" data-type="video">
+                                <div class="outreach-video-card">
+                                    <video controls preload="metadata" playsinline poster="images/outreach/chief-palace-ijayapi/photo-3.jpg">
+                                        <source src="images/outreach/chief-palace-ijayapi/video-3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="outreach-video-info">
+                                        <h5><i class="fa-solid fa-circle-play text-warning me-1"></i> Words of Hope & Prayers</h5>
+                                        <p>Founder Queen Esther Chukwumaeze uplifting the women with empowering words and prayers.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- VIDEO 4 -->
+                            <div class="col-lg-4 col-md-6 media-item video-item" data-type="video">
+                                <div class="outreach-video-card">
+                                    <video controls preload="metadata" playsinline poster="images/outreach/chief-palace-ijayapi/photo-4.jpg">
+                                        <source src="images/outreach/chief-palace-ijayapi/video-4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="outreach-video-info">
+                                        <h5><i class="fa-solid fa-circle-play text-warning me-1"></i> Joyful Beneficiary Expressions</h5>
+                                        <p>Heartfelt reactions, gratitude, and testimonials from local community mothers.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- VIDEO 5 -->
+                            <div class="col-lg-4 col-md-6 media-item video-item" data-type="video">
+                                <div class="outreach-video-card">
+                                    <video controls preload="metadata" playsinline poster="images/outreach/chief-palace-ijayapi/photo-5.jpg">
+                                        <source src="images/outreach/chief-palace-ijayapi/video-5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="outreach-video-info">
+                                        <h5><i class="fa-solid fa-circle-play text-warning me-1"></i> Team Wrap-up & Palace Blessing</h5>
+                                        <p>Concurring remarks, chief's blessings, and group photo session at the Palace ground.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 1 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-1.jpg" title="Audience with the Council at Chief Palace Ijayapi, Biaji">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-1.jpg" alt="Outreach at Chief Palace Ijayapi Biaji Kubwa Abuja">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 2 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-2.jpg" title="Community gathering and presentation of relief materials">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-2.jpg" alt="Community relief presentation Chief Palace Ijayapi">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 3 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-3.jpg" title="Food items and welfare packages distributed to vulnerable families">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-3.jpg" alt="Food parcel distribution Biaji Kubwa Abuja">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 4 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-4.jpg" title="Engaging with community widows and sharing compassion">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-4.jpg" alt="Widows empowerment outreach Abuja">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 5 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-5.jpg" title="Queen Ecstasy Foundation volunteers and community members">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-5.jpg" alt="Volunteers at Chief Palace Ijayapi Abuja">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 6 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-6.jpg" title="Grassroots outreach moments in Biaji community across Kubwa">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-6.jpg" alt="Biaji Kubwa outreach Abuja">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 7 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-7.jpg" title="Direct handover of essential supplies to local mothers">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-7.jpg" alt="Handing over food relief to widows Abuja">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 8 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-8.jpg" title="Smiles of gratitude from beneficiaries at Ijayapi">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-8.jpg" alt="Beneficiaries smiling at Chief Palace Ijayapi">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 9 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-9.jpg" title="Community solidarity and collective support at the palace">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-9.jpg" alt="Community gathering Biaji Abuja">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- PHOTO 10 -->
+                            <div class="col-lg-4 col-md-6 media-item photo-item" data-type="photo">
+                                <div class="outreach-photo-card">
+                                    <a href="images/outreach/chief-palace-ijayapi/photo-10.jpg" title="Commemorative gathering at the conclusion of the outreach">
+                                        <img src="images/outreach/chief-palace-ijayapi/photo-10.jpg" alt="Commemorative group at Chief Palace Ijayapi Biaji">
+                                        <div class="outreach-photo-overlay">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================================================================== -->
+            <!-- UPCOMING OUTREACHES & HOW TO ADD MORE IN THE FUTURE                  -->
+            <!-- ==================================================================== -->
+            <div id="upcoming-outreaches" class="upcoming-outreach-card mt-5 wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 text-lg-start mb-4 mb-lg-0">
+                        <span class="badge" style="background: #0d3822; color: #ffffff; padding: 6px 14px; font-size: 13px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; display: inline-block;">
+                            <i class="fa-solid fa-earth-africa me-1"></i> Expanding Horizons
+                        </span>
+                        <h3 style="color: #0d3822; font-weight: 800; font-size: 26px; margin-bottom: 10px;">
+                            Upcoming Outreaches & Community Nominations
+                        </h3>
+                        <p style="color: #666; font-size: 15px; margin: 0; line-height: 1.6;">
+                            Our mission is continuously expanding across grassroots communities in Abuja (FCT), Imo State, and underserved areas throughout Nigeria. We welcome community leaders, churches, local chiefs, and philanthropists to nominate or co-sponsor vulnerable settlements for our next relief intervention.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <div class="d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-center">
+                            <a href="contact.html?action=nominate-community" class="btn-default btn-highlighted text-center">
+                                <i class="fa-solid fa-location-crosshairs me-1"></i> Nominate a Community
+                            </a>
+                            <a href="index.html#donate-section" class="btn-default text-center" style="background:#0d3822; color:#fff; border-color:#0d3822;">
+                                <i class="fa-solid fa-hand-holding-dollar me-1"></i> Sponsor an Outreach
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Main Footer Start -->
+    <footer class="main-footer-gold dark-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Footer Header Start -->
+                    <div class="footer-header-gold">
+                        <!-- Footer Logo Start -->
+                        <div class="footer-logo-gold">
+                            <a href="index.html" class="d-inline-flex align-items-center text-decoration-none">
+                                <img src="images/logo-badge.png" alt="Queen Ecstasy Family Support Foundation" style="width: 65px; height: 65px; border-radius: 50%; object-fit: contain; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.35);">
+                                <div style="margin-left: 15px; text-align: left;">
+                                    <span style="color:#ffffff; font-weight:800; font-size:20px; text-transform:uppercase; letter-spacing:0.8px; display:block; line-height:1.15;">Queen Ecstasy</span>
+                                    <small style="color:#cda043; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; display:block; margin-top:2px;">Family Support Foundation</small>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Footer Logo End -->
+
+                        <!-- Footer Social Links Start -->
+                        <div class="footer-social-links-gold">
+                            <ul>
+                                <li><a href="https://www.facebook.com/queenestacysupportfoundation" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/queenestacysupportfoundation" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="https://www.tiktok.com/@queenestacysupportfoundation" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+                                <li><a href="https://www.x.com/queenestacysupportfoundation" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="https://wa.me/2347081954398" target="_blank" title="WhatsApp: 0708 195 4398"><i class="fa-brands fa-whatsapp"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Links End -->
+                    </div>
+                    <!-- Footer Header End -->
+                </div>
+
+                <div class="col-xl-4 col-lg-12">
+                    <!-- About Footer Start -->
+                    <div class="about-footer-gold">
+                        <div class="about-footer-content-gold">
+                            <h2>About Our Foundation</h2>
+                            <p>A registered non-governmental organization in Abuja, Nigeria, dedicated to uplifting young widows, providing child scholarships, food relief, and building sustainable futures through vocational empowerment.</p>
+                        </div>
+                        <div class="footer-contact-info-list-gold">
+                            <ul>
+                                <li><i class="fa-solid fa-location-dot me-2 text-warning"></i><span><strong>Head Office:</strong> No 294 Obioma Abara Street, Arab Road, Kubwa, Abuja, Nigeria</span></li>
+                                <li class="mt-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i><span><strong>Imo Office:</strong> No 5b Okigwe Road, Owerri, Imo State</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-xl-4 col-lg-6">
+                    <!-- Footer Links Box Start -->
+                    <div class="footer-links-box-gold">
+                        <div class="footer-links-gold">
+                            <h2>Quick Links</h2>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="services.html">Our Programs</a></li>
+                                <li><a href="outreach.html">Community Outreaches</a></li>
+                                <li><a href="index.html#donate-section">Donate Now</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-gold">
+                            <h2>Program Areas</h2>
+                            <ul>
+                                <li><a href="services.html">Widows Empowerment</a></li>
+                                <li><a href="services.html">Child Scholarships</a></li>
+                                <li><a href="services.html">Emergency Food Relief</a></li>
+                                <li><a href="services.html">Medical Outreaches</a></li>
+                                <li><a href="services.html">Family Restoration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="col-xl-4 col-lg-6">
+                    <div class="footer-newsletter-form-gold">
+                        <h2>Subscribe to Impact Updates</h2>
+                        <form id="newslettersForm" action="contact.html" method="GET">
+                            <div class="form-group">
+                                <input type="email" name="mail" class="form-control" id="mail" placeholder="Enter Email Address*" required>
+                                <button type="submit" class="newsletter-btn-gold"><img src="images/arrow-primary.svg" alt=""></button>
+                            </div>
+                        </form>
+                        <p>Receive verified updates on our upcoming community outreaches, widow sponsorships, and impact stories in Abuja.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Copyright Start -->
+        <div class="footer-copyright-gold">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copyright-text-gold">
+                            <p>Copyright © 2026 Queen Ecstasy Family Support Foundation. All Rights Reserved. "Restoring Hope, Empowering Lives"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Copyright End -->
+    </footer>
+    <!-- Main Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.min.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+
+    <!-- Interactive Media Filter Script -->
+    <script>
+        $(document).ready(function () {
+            // Media Filter for Outreach
+            $('.media-filter-btn').on('click', function () {
+                var $btn = $(this);
+                var filterValue = $btn.attr('data-filter');
+                var $parentNav = $btn.closest('.media-filter-nav');
+                var gridId = $parentNav.attr('data-target') + '-media-grid';
+                var $grid = $('#' + gridId);
+
+                // Update active button
+                $parentNav.find('.media-filter-btn').removeClass('active');
+                $btn.addClass('active');
+
+                if (filterValue === 'all') {
+                    $grid.find('.media-item').fadeIn(300);
+                } else if (filterValue === 'photo') {
+                    $grid.find('.video-item').fadeOut(200, function () {
+                        $grid.find('.photo-item').fadeIn(300);
+                    });
+                } else if (filterValue === 'video') {
+                    $grid.find('.photo-item').fadeOut(200, function () {
+                        $grid.find('.video-item').fadeIn(300);
+                    });
+                }
+            });
+
+            // Pause other playing videos when one starts
+            $('video').on('play', function () {
+                $('video').not(this).each(function () {
+                    this.pause();
+                });
+            });
+
+            // Initialize Magnific Popup on gallery photo links
+            $('.gallery-items').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                mainClass: 'mfp-with-zoom',
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    opener: function (element) {
+                        return element.find('img');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Floating WhatsApp Support Button -->
+    <a href="https://wa.me/2347081954398?text=Hello%20Queen%20Ecstasy%20Foundation%2C%20I%20would%20like%20to%20connect%20regarding%20Community%20Outreaches."
+        class="floating-whatsapp-btn" target="_blank" title="Chat on WhatsApp"
+        style="position:fixed; bottom:25px; right:25px; z-index:9999; background:#25D366; color:#ffffff; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(37,211,102,0.45); text-decoration:none; font-size:30px; transition:transform 0.3s ease;">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+
+</html>
